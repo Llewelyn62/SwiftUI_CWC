@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RecipeListView: View {
-    
+    //Adding an environment object to replace the model object. This exists
+    //at a higher level (TabView) and is referenced to all sub views.
+    @EnvironmentObject var model: RecipeModel
     //Listens to the REcipeModel object for any published changes.
     //By implication, the recipeModel needs to publish changes.
-    @ObservedObject var model = RecipeModel()
+    //@ObservedObject var model = RecipeModel()
     var body: some View {
         NavigationView {
             List(model.recipes) {r in
