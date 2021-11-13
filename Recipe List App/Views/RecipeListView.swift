@@ -33,12 +33,16 @@ struct RecipeListView: View {
                                         Image(r.image)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .frame(width: 100, height: 50, alignment: .center)
                                             .clipped()
                                             .cornerRadius(5)
-                                        Text(r.name)
-                                            .font(.title2)
+                                        VStack(alignment: .leading) {
+                                            Text(r.name)
                                             .foregroundColor(.black)
+                                            .bold()
+                                            RecipeHighlights(highlights : r.highlights)
+                                                .foregroundColor(.black)
+                                        }
                                         
                                     }
                                 })
